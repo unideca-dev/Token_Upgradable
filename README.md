@@ -49,7 +49,23 @@ yarn hardhat vars set BSC_WALLET_PK {지갑 개인키 값 붙여넣기}
 yarn deploy bsc-testnet
 
 # bsc mainnet 배포
+# 주의: mainnet 배포이기 때문에 신중하게 진행
 yarn deploy bsc
 ```
 
 ## 컨트랙트 인증 방법
+```bash
+# TokenUpgradeable 컨트랙트 인증
+yarn hardhat verify --network bsc-testnet {컨트랙트 주소}
+
+# TokenProxy 컨트랙트 인증
+yarn hardhat verify `
+--network bsc-testnet `
+--constructor-args .\config\bsc-testnet.argument.ts `
+--contract contracts/TokenProxy.sol:TokenProxy `
+{컨트랙트 주소}
+
+# 프록시 - 로직 연결
+# bsc scanner
+# proxy contract 상세 페이지로 이동 -> [contract] 탭 -> 최상단 컨트랙트 [more] 클릭 -> isProxy? 버튼 클릭
+```
