@@ -2,7 +2,7 @@ import { expect } from "chai";
 import { ethers } from 'hardhat';
 import { loadFixture } from "@nomicfoundation/hardhat-network-helpers";
 import { TokenBurnableUpgradeable, TokenUpgradeable } from "../typechain-types";
-import { formatEther, formatUnits, parseEther } from "ethers";
+import { formatEther, parseEther } from "ethers";
 
 describe("Upgradeable Token Contract", ()=>{
     async function deployTokenFixture() {
